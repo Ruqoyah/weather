@@ -1,5 +1,6 @@
 const { weatherAction } = require('../action')
 
+// Get Weather based of location
 const weather = async (input) => {
   if (!input) {
     return 'input is required'

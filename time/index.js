@@ -1,5 +1,6 @@
 const moment = require('moment')
 
+//Get current time
 const currentTime = (timezone) => {
   if (!timezone) {
     return 'input is required'
