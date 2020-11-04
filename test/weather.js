@@ -16,11 +16,15 @@ describe('weather()', () => {
   })
 
   it('indicates failure when a string is passed instead of an object', () => {
-    assert.equal(weather('input'), 'invalid input')
+    return weather('input').then((response) => {
+      assert.equal(response, 'invalid input')
+    })
   })
 
   it('should return error message if no input passed', () => {
-    assert.equal(weather(), 'input is required')
+    return weather().then((response) => {
+      assert.equal(response, 'input is required')
+    })
   })
 
 })

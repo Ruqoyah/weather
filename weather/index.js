@@ -1,15 +1,23 @@
 const { weatherAction } = require('../action')
 
-const weather = (input) => {
+const weather = async (input) => {
   if (!input) {
     return 'input is required'
   }
   else if(typeof(input) !== 'object') {
     return 'invalid input'
   } 
-  return weatherAction(input)
-    .then((response) => response)
-    .catch(() => 'An error occured')
+  try {
+    const { data } = await weatherAction(input)
+
+    return data
+
+  } catch (error) {
+    if (error.response) {
+      throw new Error('An error occurred fetching weather')
+    }
+    throw new Error('An error occurred, please try again')
+  }
 }
 
 module.exports = {
