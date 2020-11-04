@@ -2,12 +2,14 @@ const moment = require('moment')
 
 const currentTime = (timezone) => {
   if (!timezone) {
-    return 'input is required';
+    return 'input is required'
   }
-  else if(isNaN(timezone)) {
+  else if(typeof(timezone) !== 'number') {
     return 'invalid input'
   } 
-  return moment().utcOffset(timezone).format("h:mm:ss A")
+
+  const timezoneInMinutes = timezone / 60
+  return moment().utcOffset(timezoneInMinutes).format("h:mm:ss A")
 }
 
 module.exports = {

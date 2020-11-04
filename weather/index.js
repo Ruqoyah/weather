@@ -1,8 +1,8 @@
-const { weatherAction } = require('../action');
+const { weatherAction } = require('../action')
 
 const weather = (input) => {
   if (!input) {
-    return 'input is required';
+    return 'input is required'
   }
   else if(typeof(input) !== 'object') {
     return 'invalid input'
