@@ -10,7 +10,9 @@ const input = {
 describe('weather()', () => {
 
   it('should return weather', () => {
-    assert.ok(typeof(weather(input)) === 'string')
+    return weather(input).then((response) => {
+      assert.ok(typeof(response) === 'object')
+    })
   })
 
   it('indicates failure when a string is passed instead of an object', () => {
